@@ -1,0 +1,9 @@
+set shell := ["zsh", "-cu"]
+
+default: run
+
+run:
+    docker-compose up
+
+clean:
+    docker-compose down
