@@ -5,15 +5,20 @@
 ### Architecture
 
 ```mermaid
-graph LR;
+graph TB;
   A>Incoming Data];
   B[Kafka];
   C{{Prefect}};
   D[(Postgres)];
+  E[DS Model];
+  F[MLFlow];
 
   A-->B;
   B-->C;
   C-->|Schedules Batch Jobs|D
+  C-->|Schedules Model Runs|E
+  E-.->|Sends Metrics, etc.|F
+  D-.-|
     
 ```
 
