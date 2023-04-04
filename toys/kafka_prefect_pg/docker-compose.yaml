@@ -1,8 +1,1 @@
-version: '3.8'
-services:
-  mlflow:
-    image: ghcr.io/mlflow/mlflow:v2.2.1
-    restart: always
-    ports:
-      - 5000:5000
-    command: mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri sqlite://sqlite/db
+

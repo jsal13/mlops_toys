@@ -1,9 +1,13 @@
 set shell := ["zsh", "-cu"]
+set dotenv-load
 
 default: run
 
 run:
-    docker-compose up
+    docker-compose \
+        -f $TOYS_HOME/db_postgres/docker-compose.yaml \
+        -f $TOYS_HOME/stream_kafka_DC/docker-compose.yaml \
+        up
 
 clean:
     docker-compose down

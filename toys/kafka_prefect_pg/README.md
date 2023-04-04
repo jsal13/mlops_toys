@@ -2,6 +2,8 @@
 
 ## Description
 
+Requires the user to have **ssh://git@github.com/jsal13/toys** cloned and at some location which I will refer to as `$TOYS_HOME`.
+
 ### Architecture
 
 ```mermaid
@@ -14,11 +16,10 @@ graph TB;
   F[MLFlow];
 
   A-->B;
-  B-->C;
-  C-->|Schedules Batch Jobs|D
-  C-->|Schedules Model Runs|E
-  E-.->|Sends Metrics, etc.|F
-  D-.-|
+  B-->D;
+  C-->|Schedule Model Runs|E
+  E-.->|Send Metrics, etc.|F
+  D-.-|Model Gets Data From PG|E
     
 ```
 
