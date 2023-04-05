@@ -6,14 +6,18 @@ import psycopg
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LogisticRegression
 from sklearn.compose import ColumnTransformer
-from sklearn.metrics import mean_squared_error
-from sklearn.base import RegressorMixin
+from sklearn.base import ClassifierMixin
+
+from ds_models.sensor_event_model import make_sample_targets
+from ds_models.utils import classification
 
 PG_CONNECTION_STRING = (
     "postgresql://localhost:5432/postgres?user=postgres&password=example"
 )
+
+print(__package__)
 
 
 class EventModel:
@@ -25,7 +29,7 @@ class EventModel:
         self.X_test: pd.DataFrame
         self.y_train: pd.DataFrame
         self.y_test: pd.DataFrame
-        self.reg: Type[RegressorMixin]
+        self.reg: Type[ClassifierMixin]
 
     def _get_data_from_table(self) -> tuple[pd.DataFrame, pd.DataFrame]:
         """Return Feature and Target dataframes of records from ``events`` tale."""
@@ -38,8 +42,8 @@ class EventModel:
         df.drop("id", axis=1, inplace=True)
 
         # Drop the datetime and the id, we don't wanna do timeseries stuff yet here.
-        X = df.drop(["heat_index", "dt"], axis=1)
-        y = df["heat_index"]
+        X = df.drop(["dt"], axis=1)
+        y = make_sample_targets.make_target(df)  # Creates synthetic labels for this data.
 
         return (X, y)
 
@@ -75,14 +79,17 @@ class EventModel:
         preprocessor = self._create_preprocessor()
 
         regressor = Pipeline(
-            steps=[("preprocessor", preprocessor), ("rf_regression", LinearRegression())]
+            steps=[
+                ("preprocessor", preprocessor),
+                ("rf_regression", LogisticRegression()),
+            ]
         )
 
         self.reg = regressor.fit(self.X_train, self.y_train)
 
-    def score_model(self) -> float:
+    def score_model(self) -> pd.DataFrame:
         """Score the current model."""
-        return mean_squared_error(self.y_test, self.reg.predict(self.X_test))
+        return classification.score_printout(self.y_test, self.reg.predict(self.X_test))
 
 
 if __name__ == "__main__":
