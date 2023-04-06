@@ -5,6 +5,7 @@ description = 'Collection of MLOps Pipeline Toys.'
 authors = ['James Salvatore <jimmy.c.salvatore@gmail.com>']
 license = "LICENSE"
 readme = "README.md"
+packages = [{include = "toys"}]
 
 [tool.poetry.dependencies]
 altair = "^4.2"

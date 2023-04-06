@@ -4,10 +4,10 @@ default:
     just --list
 
 run target:
-    (cd ./toys/{{target}} && just)
+    (cd {{target}} && just run)
 
 clean target:
-    (cd ./toys/{{target}} && just clean)
+    (cd {{target}} && just clean)
 
 toys:
     (cd ./toys && ls -1)

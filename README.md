@@ -1,4 +1,4 @@
-# Toys
+# MLOps Toys
 
 A collection of MLOps Pipeline toys (templates for how to do things) for creating standard pipelines.
 

@@ -1,3 +1,6 @@
+# Joblib models.
+*.joblib
+
 # ----- Terraform --------
 # Local .terraform directories
 **/.terraform/*
