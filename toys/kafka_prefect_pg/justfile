@@ -1,13 +1,14 @@
 set shell := ["zsh", "-cu"]
-set dotenv-load
 
 default: run
 
 run:
-    docker-compose \
-        -f $TOYS_HOME/db_postgres/docker-compose.yaml \
-        -f $TOYS_HOME/stream_kafka_DC/docker-compose.yaml \
-        up
+    @if [ $(k3d cluster list --no-headers -o json | jq '.[] | .name' | grep -q 'k3s-default')] == 0 ]; then k3d cluster create; fi
+
+    docker build -t signal-generator -f ./Dockerfile_Signal_Generator .
 
 clean:
-    docker-compose down
+    k3d cluster delete
+
+
+# 49858

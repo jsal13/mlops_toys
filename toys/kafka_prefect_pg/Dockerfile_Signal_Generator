@@ -1,0 +1,12 @@
+FROM python:3.10-slim
+
+ENV IN_DOCKER=true
+ENV PYTHONPATH="/app/:$PYTHONPATH"
+
+WORKDIR /src
+
+COPY ./code_data_stream/ /src/code_data_stream
+
+RUN pip install -r /src/code_data_stream/requirements.txt
+
+CMD ["python", "/src/code_data_stream/generate.py"]
