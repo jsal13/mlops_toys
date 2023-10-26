@@ -1,5 +1,5 @@
 resource "aws_security_group" "allow_http_ssh" {
-  name        = "${var.app_name}-allow-http-ssh"
+  name        = "${local.app_name}-sgp-allowhttpssh"
   description = "Allow http, ssh ingress."
   vpc_id      = module.vpc.vpc_id
 
