@@ -22,4 +22,6 @@
 #   key    = "/data/data_0${count.index}.parquet"
 #   source = "../sample_data/data_0${count.index}.parquet"
 #   etag   = filemd5("../sample_data/data_0${count.index}.parquet")
+
+#   depends_on = [ module.s3_bucket_data ]
 # }
