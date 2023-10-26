@@ -1,3 +1,5 @@
+*.parquet
+
 # Joblib models.
 *.joblib
 

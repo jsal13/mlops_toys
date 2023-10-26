@@ -20,6 +20,6 @@
 #   count  = 1
 #   bucket = module.s3_bucket_data.s3_bucket_id
 #   key    = "/data/data_0${count.index}.parquet"
-#   source = "./sample_data/data_0${count.index}.parquet"
-#   etag   = filemd5("./sample_data/data_0${count.index}.parquet")
+#   source = "../sample_data/data_0${count.index}.parquet"
+#   etag   = filemd5("../sample_data/data_0${count.index}.parquet")
 # }
