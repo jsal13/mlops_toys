@@ -1,5 +1,0 @@
-services:
-  json_stream:
-    build: .
-    ports:
-      - "8001:8001"

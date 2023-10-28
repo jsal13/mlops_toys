@@ -1,0 +1,16 @@
+services:
+  stream_gen:
+    build: ./stream_gen/
+    ports:
+      - "8001:8001"
+    environment:
+      - PYTHONUNBUFFERED=1
+  
+  producer:
+    build: ./producer/
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - stream_gen
+    volumes:
+    - ~/.aws_docker:/root/.aws
