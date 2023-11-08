@@ -1,0 +1,23 @@
+version: 2
+
+seeds:
+  - name: raw_customers
+    description: "Model for raw_customers"
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: name
+        tests:
+          - not_null
+  - name: raw_orders
+    description: "Model for raw_customers"
+    columns:
+      - name: id
+      - name: customer
+      - name: ordered_at
+      - name: store_id
+      - name: subtotal
+      - name: tax_paid
+      - name: order_total
