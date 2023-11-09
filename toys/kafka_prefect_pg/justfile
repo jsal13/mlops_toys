@@ -9,6 +9,3 @@ run:
 
 clean:
     k3d cluster delete
-
-
-# 49858
