@@ -1,6 +1,23 @@
-# Starter Project
+# DBT Example
 
-## QUICKSTART
+## Status
+
+**Working.**
+
+## Description
+
+What is this pipeline?
+
+```mermaid
+graph LR;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+
+```
+
+## Quickstart
 
 First run `docker compose up` to create a postgres db.
 

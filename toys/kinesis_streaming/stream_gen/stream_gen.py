@@ -52,7 +52,6 @@ dg = DataGenerator()
 def stream_data():
     """Route to GET stream data."""
 
-    # TODO: Is this how people do crap?
     return Response(json.dumps(dg._generate_row()), content_type="application/json")
 
 
