@@ -1,6 +1,6 @@
 # PySpark Example Notebook
 
-## Status (If not Working...)
+## Status
 
 **Working.**
 
