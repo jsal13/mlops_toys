@@ -1,0 +1,14 @@
+{
+    "name": "datagen-orders",
+    "config": {
+        "connector.class": "io.confluent.kafka.connect.datagen.DatagenConnector",
+        "kafka.topic": "test_orders_json",
+        "quickstart": "orders",
+        "key.converter": "org.apache.kafka.connect.storage.StringConverter",
+        "value.converter": "org.apache.kafka.connect.json.JsonConverter",
+        "value.converter.schemas.enable": "false",
+        "max.interval": 5000,
+        "iterations": 100000,
+        "tasks.max": "1"
+    }
+}
