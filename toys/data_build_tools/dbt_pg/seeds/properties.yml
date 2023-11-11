@@ -1,4 +1,5 @@
 seeds:
+  # For jaffle-data.
   - name: raw_customers
     description: "Model for raw_customers"
     columns:
