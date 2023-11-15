@@ -8,6 +8,7 @@ COPY requirements.txt ./
 RUN pip3 install --disable-pip-version-check \
     --no-cache-dir -r requirements.txt
 
-COPY api.py /app
+COPY api.py .
+COPY generator.py .
 
 ENTRYPOINT [ "python", "-m", "uvicorn", "--host", "0.0.0.0", "--port", "4041", "api:api", "--reload" ]

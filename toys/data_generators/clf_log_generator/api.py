@@ -24,7 +24,7 @@ fake = Faker(locale="en")
 @api.get("/log")
 def get_name() -> dict[str, str]:
     """Return a random CLF log."""
-    return generate_random_log_row()
+    return {"data": generate_random_log_row()}
 
 
 @api.get("/text")
