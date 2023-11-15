@@ -9,14 +9,12 @@ services:
   db:
     image: mysql:8.1.0
     # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
-    # (this is just an example, not intended to be a production configuration)
-    command: --default-authentication-plugin=mysql_native_password
+    command: --default-authentication-plugin=mysql_native_password --secure-file-priv=''
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - $PWD/:/docker-entrypoint-initdb.d/
-      - $PWD/data:/data
+      - data-vol:/docker-entrypoint-initdb.d
     ports:
       - 5432:5432
     depends_on:

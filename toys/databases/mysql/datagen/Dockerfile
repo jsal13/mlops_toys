@@ -5,6 +5,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 WORKDIR /data
 
 COPY requirements.txt ./
+COPY init.sql ./
 
 # Creates jaffle data in /data folder.
 RUN pip3 install --disable-pip-version-check \

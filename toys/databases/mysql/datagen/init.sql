@@ -6,9 +6,11 @@ CREATE TABLE customers (
     PRIMARY KEY (id)
 );
 
-LOAD DATA INFILE '/data/raw_customers.csv'
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_customers.csv'
 INTO TABLE customers 
 FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 CREATE TABLE items (
@@ -18,9 +20,11 @@ CREATE TABLE items (
     PRIMARY KEY (id)
 );
 
-LOAD DATA INFILE '/data/raw_items.csv'
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_items.csv'
 INTO TABLE items 
 FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 CREATE TABLE orders (
@@ -34,9 +38,11 @@ CREATE TABLE orders (
     PRIMARY KEY (id)
 );
 
-LOAD DATA INFILE '/data/raw_orders.csv'
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_orders.csv'
 INTO TABLE orders 
 FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 CREATE TABLE products (
@@ -48,9 +54,11 @@ CREATE TABLE products (
     PRIMARY KEY (sku)
 );
 
-LOAD DATA INFILE '/data/raw_products.csv'
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_products.csv'
 INTO TABLE products 
 FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 CREATE TABLE stores (
@@ -61,9 +69,11 @@ CREATE TABLE stores (
     PRIMARY KEY (id)
 );
 
-LOAD DATA INFILE '/data/raw_stores.csv'
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_stores.csv'
 INTO TABLE stores 
 FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
 IGNORE 1 ROWS;
 
 CREATE TABLE supplies (
@@ -74,7 +84,11 @@ CREATE TABLE supplies (
     sku VARCHAR(128)
 );
 
-LOAD DATA INFILE '/data/raw_supplies.csv'
+-- https://forums.mysql.com/read.php?98,395223,395246#msg-395246
+LOAD DATA INFILE '/docker-entrypoint-initdb.d/raw_supplies.csv'
 INTO TABLE supplies 
 FIELDS TERMINATED BY ','
-IGNORE 1 ROWS;
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(id,name,cost,@perishable,sku) SET perishable = (@perishable = 'True');
