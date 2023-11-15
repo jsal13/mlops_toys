@@ -17,3 +17,14 @@ The only requirements are:
   - Terraform-related files
 
   - Helm-related files
+
+## To Create
+
+Things I need to create or migrate.
+
+- Trino (w/ Postgres + maybe minio)
+- Grafana
+- MLFlow basic
+- Flyte (?) basic
+- Prefect (?)
+- Airflow (?)
