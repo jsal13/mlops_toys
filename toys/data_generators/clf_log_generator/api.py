@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from faker import Faker
 
+from generator import generate_random_log_row
+
 api = FastAPI()
 
 origins = ["*"]
@@ -19,10 +21,10 @@ api.add_middleware(
 fake = Faker(locale="en")
 
 
-@api.get("/name")
+@api.get("/log")
 def get_name() -> dict[str, str]:
-    """Return a random name."""
-    return {"data": fake.name()}
+    """Return a random CLF log."""
+    return generate_random_log_row()
 
 
 @api.get("/text")
