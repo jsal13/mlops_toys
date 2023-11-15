@@ -1,10 +1,8 @@
 # Log Generator
 
-## Status (If not Working...)
+## Status
 
-**Not Working.**
-
-- [x] In progress
+**Working.**
 
 ## Description
 
