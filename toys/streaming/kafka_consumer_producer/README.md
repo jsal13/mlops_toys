@@ -1,28 +1,18 @@
-# Kafka to Postgres Pipeline
+# Kafka Consumer / Producer
 
 ## Status
 
-**Not Working.**
-
-If not working:
-
-- [ ] Error
-
-- [x] In progress
+**Working.**
 
 ## Description
 
-What is this pipeline?
-
-```mermaid
-graph LR;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-```
+Kafka consumer + producer pipeline.
 
 ## Quickstart
+
+```shell
+docker compose up
+```
 
 ## Credentials
 
@@ -48,10 +38,6 @@ While exec'd into the Kafka broker:
 # Test console consumer...
 kafka-console-consumer --bootstrap-server localhost:9092 \
     --topic orders_json --property print.key=true
-
-# With a proper avro schema...
-kafka-avro-console-consumer --bootstrap-server localhost:9092 --topic commercials_avro \
-     --property schema.registry.url=http://localhost:8081
 ```
 
 ## References
