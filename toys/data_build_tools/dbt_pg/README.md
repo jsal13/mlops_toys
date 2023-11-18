@@ -1,21 +1,16 @@
 # DBT Example
 
+## Last Updated
+
+2023-11-18
+
 ## Status
 
 **Working.**
 
 ## Description
 
-What is this pipeline?
-
-```mermaid
-graph LR;
-    A-->B;
-    A-->C;
-    B-->D;
-    C-->D;
-
-```
+An example of the data build tool ([dbt](https://github.com/dbt-labs/dbt-core)) running locally.
 
 ## Quickstart
 

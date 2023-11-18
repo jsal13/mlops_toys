@@ -1,12 +1,16 @@
 # Airflow
 
+## Last Updated
+
+2023-11-18
+
 ## Status
 
 **Working.**
 
 ## Description
 
-Spins up Airflow.
+Spins up Airflow with Flower in Docker Compose.
 
 ## Quickstart
 

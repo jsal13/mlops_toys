@@ -1,5 +1,9 @@
 # Sops with AWS KMS Secrets
 
+## Last Updated
+
+2023-11-18
+
 ## Description
 
 [Sops](https://github.com/mozilla/sops) is a tool one can use to encrypt files and keep in a git repository safely.

@@ -1,5 +1,9 @@
 # Kafka Consumer / Producer
 
+## Last Updated
+
+2023-11-18
+
 ## Status
 
 **Working.**
@@ -13,10 +17,6 @@ Kafka consumer + producer pipeline.
 ```shell
 docker compose up
 ```
-
-## Credentials
-
-## Notes
 
 ### Useful Commands
 
@@ -39,6 +39,10 @@ While exec'd into the Kafka broker:
 kafka-console-consumer --bootstrap-server localhost:9092 \
     --topic orders_json --property print.key=true
 ```
+
+## Credentials
+
+## Notes
 
 ## References
 
