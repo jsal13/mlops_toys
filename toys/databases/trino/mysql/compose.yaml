@@ -1,12 +1,12 @@
 services:
   
-  datagen:
+  mysql-datagen:
     build:
-      context: datagen
+      context: ./mysql/datagen
     volumes:
-      - data-vol:/data
+      - mysql-data-vol:/data
 
-  db:
+  mysql-db:
     image: mysql:8.1.0
     # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
     command: --default-authentication-plugin=mysql_native_password --secure-file-priv=''
@@ -14,17 +14,11 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: example
     volumes:
-      - data-vol:/docker-entrypoint-initdb.d
+      - mysql-data-vol:/docker-entrypoint-initdb.d
     ports:
       - 3306:3306
     depends_on:
-      - datagen
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+      - mysql-datagen
 
 volumes:
-  data-vol:
+  mysql-data-vol:

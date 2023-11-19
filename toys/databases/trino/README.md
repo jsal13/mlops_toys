@@ -14,7 +14,9 @@ If not working:
 
 ## Description
 
-Trino is a query engine that is made for taking data from different sources and joining all of that together.  _While it is not technically a DB, I group it in with the DBs for simplicity._
+[Trino](https://trino.io/) is a query engine.  We can query databases (like postgres) and a [variety of other things](https://trino.io/docs/current/connector.html).
+
+(_While it is not technically a DB, I group it in with the DBs for simplicity._)
 
 ## Quickstart
 
@@ -22,17 +24,21 @@ Trino is a query engine that is made for taking data from different sources and 
 docker compose \
     -f compose.yaml \
     -f ./pg/compose.yaml \
+    -f ./mysql/compose.yaml \
     up
 ```
 
 ## Credentials
 
-|             |           |
-| ----------- | --------- |
-| Trino User  | `admin`   |
-| PG User     | `admin`   |
-| PG Password | `example` |
-| PG Database | `admin`   |
+|                |           |
+| -------------- | --------- |
+| Trino User     | `admin`   |
+| PG User        | `admin`   |
+| PG Password    | `example` |
+| PG Database    | `admin`   |
+| MySQL User     | `root`    |
+| MySQL Password | `example` |
+| MySQL Database | `test`    |
 
 ## Notes
 

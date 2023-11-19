@@ -9,6 +9,7 @@ services:
       - ./configs/catalog:/etc/trino/catalog
     depends_on:  # Comment out anything unnecessary...
       - pg-db
+      - mysql-db
 
   # For mysql, postgres, etc., debugging.
   adminer:
