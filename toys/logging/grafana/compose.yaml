@@ -1,0 +1,13 @@
+services:
+  grafana:
+    image: grafana/grafana-enterprise
+    container_name: grafana
+    ports:
+     - 3000:3000
+    environment:
+     - GF_SERVER_ROOT_URL=http://my.grafana.server/
+     - GF_INSTALL_PLUGINS=grafana-clock-panel
+      
+    volumes:
+      - ./configs/grafana.ini:/etc/grafana/grafana.ini
+      - ./configs/datasource.yaml:/etc/grafana/provisioning/datasources/datasource.yaml

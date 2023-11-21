@@ -23,9 +23,11 @@ scrape_configs:
   - job_name: "prometheus"
     static_configs:
       - targets: ["localhost:9090"]
-  #  - job_name: trino
-  #    static_configs:
-  #        - targets: ["trino:9081"]
+
+  - job_name: trino
+    static_configs:
+      - targets: ["trino:8080"]
+
   - job_name: example_api
     static_configs:
       - targets: ["example_api:8001"]

@@ -1,8 +1,8 @@
-# Prometheus
+# Grafana
 
 ## Last Updated
 
-2023-11-18
+2023-11-21
 
 ## Status
 
@@ -14,9 +14,9 @@ If not working:
 
 ## Description
 
-[Prometheus](https://github.com/prometheus/prometheus) is a systems and service monitoring system.  This toy gives a few examples of what it can monitor:
+[Grafana](https://grafana.com/oss/grafana/?plcmt=footer) is an open source data visualization and monitoring solution.  This toy gives a few examples of what it can monitor:
 
-- Itself (Prometheus logs)
+- 
 
 TODO: This is not quite accurate.
 
@@ -45,6 +45,7 @@ docker compose \
     -f ./example_api/compose.yaml \
     -f ./trino/compose.yaml \
     -f ./trino/pg/compose.yaml \
+    -f ./trino/mysql/compose.yaml \
     up
 
 # To tear down
@@ -67,4 +68,5 @@ rate(http_request_size_bytes_count[20s])
 
 - Get example queries.
 - Get more things to monitor.
-- Trino AUTH!
+- Grafana?  Or maybe in another toy.
+- Trino?

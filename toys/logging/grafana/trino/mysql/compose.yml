@@ -1,0 +1,30 @@
+services:
+  
+  mysql-datagen:
+    build:
+      context: ./trino/mysql/datagen
+    volumes:
+      - data-vol:/data
+
+  mysql-db:
+    image: mysql:8.1.0
+    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
+    command: --default-authentication-plugin=mysql_native_password --secure-file-priv=''
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+    volumes:
+      - data-vol:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+    depends_on:
+      - datagen
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  data-vol:
