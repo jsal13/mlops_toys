@@ -1,4 +1,6 @@
-use mysql;
+CREATE DATABASE test;
+
+USE test;
 
 CREATE TABLE customers (
     id VARCHAR(128),

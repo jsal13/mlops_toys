@@ -24,6 +24,7 @@ You're able to use adminer to see the DB at <http://localhost:8080/>.  You can c
 | -------- | --------- |
 | User     | `root`    |
 | Password | `example` |
+| DB       | `mysql`   |
 
 ## Notes
 

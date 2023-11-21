@@ -58,7 +58,29 @@ docker compose down --volumes
 rate(http_request_size_bytes_count[20s])
 ```
 
+## Ports
+
+|          |           |
+| -------- | --------- |
+| Grafana  | 3000      |
+| Postgres | 5432      |
+| Mysql    | 3306      |
+| Adminer  | 8081 (!!) |
+| Trino    | 8080      |
+
 ## Credentials
+
+|                  |           |
+| ---------------- | --------- |
+| Grafana User     | `admin`   |
+| Grafana Password | `admin`   |
+| Trino User       | `admin`   |
+| PG User          | `admin`   |
+| PG Password      | `example` |
+| PG Database      | `admin`   |
+| MySQL User       | `root`    |
+| MySQL Password   | `example` |
+| MySQL Database   | `test`    |
 
 ## Notes
 

@@ -3,3 +3,57 @@ datasources:
   #   type: prometheus
   #   access: proxy
   #   url: http://prometheus:9090
+  - id: 1
+    uid: "aa71e9a3-61c8-471e-aff0-2551bd18f16a"
+    name: "MySQL"
+    type: "mysql"
+    access: "proxy"
+    url: "mysql-db:3306"
+    user: "root"
+    password: "example"
+    secureJsonData:
+      password: "example"
+    basicAuth: true
+    isDefault: true
+    jsonData:
+      connMaxLifetime: 14400
+      database: "test"
+      maxIdleConns: 100,
+      maxIdleConnsAuto: true
+      maxOpenConns: 100
+    readonly: false
+
+  - id: 2
+    uid: "c5766e83-0749-455d-9d74-e2e2a639dea7"
+    name: "PostgreSQL"
+    type: "postgres"
+    access: "proxy"
+    url: "pg-db:5432"
+    user: "admin"
+    password: "example"
+    secureJsonData:
+      password: "example"
+    basicAuth: true
+    isDefault: true
+    jsonData:
+      connMaxLifetime: 14400
+      database: "admin"
+      maxIdleConns: 100
+      maxIdleConnsAuto: true
+      maxOpenConns: 100
+      postgresVersion: 1600
+      sslmode: "disable"
+    readonly: false
+
+  - id: 3
+    uid: "a267d228-7492-4cf4-82c2-2da8a46a91d6"
+    name: "Trino"
+    type: "trino-datasource"
+    access: "proxy"
+    url: "http://trino:8080"
+    user: ""
+    secureJsonData:
+      password: ""
+    basicAuth: false
+    isDefault: true
+    readonly: false

@@ -18,13 +18,7 @@ services:
     ports:
       - 3306:3306
     depends_on:
-      - datagen
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+      - mysql-datagen
 
 volumes:
   data-vol:

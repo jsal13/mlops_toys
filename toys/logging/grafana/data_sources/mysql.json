@@ -1,0 +1,23 @@
+{
+    "id": 1,
+    "uid": "aa71e9a3-61c8-471e-aff0-2551bd18f16a",
+    "orgId": 1,
+    "name": "MySQL",
+    "type": "mysql",
+    "typeName": "MySQL",
+    "typeLogoUrl": "/public/app/plugins/datasource/mysql/img/mysql_logo.svg",
+    "access": "proxy",
+    "url": "mysql-db:3306",
+    "user": "root",
+    "database": "",
+    "basicAuth": false,
+    "isDefault": true,
+    "jsonData": {
+        "connMaxLifetime": 14400,
+        "database": "test",
+        "maxIdleConns": 100,
+        "maxIdleConnsAuto": true,
+        "maxOpenConns": 100
+    },
+    "readOnly": false
+}

@@ -1,0 +1,17 @@
+{
+    "id": 3,
+    "uid": "a267d228-7492-4cf4-82c2-2da8a46a91d6",
+    "orgId": 1,
+    "name": "Trino",
+    "type": "trino-datasource",
+    "typeName": "Trino",
+    "typeLogoUrl": "/public/plugins/trino-datasource/img/logo.svg",
+    "access": "proxy",
+    "url": "http://trino:8080",
+    "user": "",
+    "database": "",
+    "basicAuth": false,
+    "isDefault": false,
+    "jsonData": {},
+    "readOnly": false
+}
