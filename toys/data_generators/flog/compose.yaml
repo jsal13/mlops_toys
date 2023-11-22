@@ -1,0 +1,15 @@
+services:
+
+  flog:
+    image: mingrammer/flog
+    command: |
+      flog \
+      -f apache_common \    # Format
+      -n 10 \               # Number of logs
+      -d 1s                 # Delay between logs
+      -o /tmp/output.log \  # Output Path
+      -t log \              # Log Output type
+      -w                    # Overwrite existing
+    volumes:
+      - ./logs:/tmp/
+    
