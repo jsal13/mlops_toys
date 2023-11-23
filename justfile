@@ -4,4 +4,4 @@ default:
     just toys
 
 toys:
-    (cd ./toys && ls -1)
+    du -d 3 | sed -nE 's/.\/toys\/(.*)\/(.*)/\1 \2/p' | awk '{ print $2 " :: "  $3}' | sort
