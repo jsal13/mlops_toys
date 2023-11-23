@@ -10,6 +10,8 @@ Most of these will be contained to a single folder.  The README in that folder w
 - :construction: In Progress.
 - :x: Not Working.
 
+---
+
 - :white_check_mark: apis :: fastapi_example
 - :white_check_mark: credential_mgmt :: sops
 - :white_check_mark: data_build_tools :: dbt_pg
