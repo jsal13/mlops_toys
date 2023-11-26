@@ -1,2 +1,2 @@
 #!/bin/sh
-echo "Testing..."
+awslocal s3api create-bucket --bucket sample-bucket
