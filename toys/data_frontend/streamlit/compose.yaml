@@ -1,0 +1,10 @@
+services:
+
+  datastream:
+    build:
+      context: .
+    restart: always
+    ports:
+      - 8501:8501
+    entrypoint:
+      ["streamlit", "run", "app.py"]
