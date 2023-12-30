@@ -1,0 +1,10 @@
+set shell := ["zsh", "-cu"]
+
+default:
+    just make-data
+
+make-data:
+    cd ./data \
+    && jafgen --years 1 \
+    && mv jaffle-data/* . \
+    && rm -r jaffle-data
