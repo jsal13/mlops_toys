@@ -15,21 +15,24 @@ Most of these will be contained to a single folder.  The README in that folder w
 - :white_check_mark: apis :: fastapi_example
 - :white_check_mark: credential_mgmt :: sops
 - :white_check_mark: data_build_tools :: dbt_pg
+- :white_check_mark: data_frontend :: streamlit
 - :white_check_mark: data_generators :: clf_log_generator
 - :white_check_mark: data_generators :: flog
-- :white_check_mark: data_platforms :: mlflow
+- :white_check_mark: data_logging :: whylogs
+- :white_check_mark:data_platforms :: mlflow
 - :white_check_mark: data_processing :: pyspark
+- :white_check_mark: databases :: duckdb
 - :white_check_mark: databases :: mysql
 - :white_check_mark: databases :: pg
 - :white_check_mark: databases :: redis
 - :white_check_mark: databases :: trino
 - :white_check_mark: doc_styles :: diataxis
-- :x: ds_models :: sensor_event_model
-- :x: ds_models :: utils
+- :white_check_mark: ds_models :: utils
 - :white_check_mark: graphql :: strawberry_graphql
 - :construction: local_dev :: localstack
 - :construction: logging :: grafana
 - :construction: logging :: prometheus
+- :white_check_mark: model_explanation :: shap
 - :white_check_mark: orchestration_tools :: airflow
 - :white_check_mark: streaming :: kafka_consumer_producer
 - :white_check_mark: streaming :: kinesis_streaming
@@ -48,14 +51,3 @@ The only requirements are:
   - Terraform-related files
 
   - Helm-related files
-
-## To Create
-
-Things I need to create or migrate.
-
-- Trino (w/ Postgres + maybe minio)
-- Grafana
-- MLFlow basic
-- Flyte (?) basic
-- Prefect (?)
-- Airflow (?)
