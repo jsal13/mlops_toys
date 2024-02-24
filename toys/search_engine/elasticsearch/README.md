@@ -1,4 +1,4 @@
-# Elastisearch
+# Elasticsearch
 
 > [!WARNING]  
 > Before running this docker compose, please read <https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html#_start_a_single_node_cluster>:
@@ -21,7 +21,7 @@ If not working:
 
 ## Description
 
-Elastisearch toy, uses version 8.12.1 (see `.env`).
+Elasticsearch toy, uses version 8.12.1 (see `.env`).
 
 ## Quickstart
 
