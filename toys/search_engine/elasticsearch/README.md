@@ -26,6 +26,7 @@ Elasticsearch toy, uses version 8.12.1 (see `.env`).
 ## Quickstart
 
 ```shell
+cp .env.example .env
 docker compose up
 ```
 
