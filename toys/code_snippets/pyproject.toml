@@ -70,11 +70,12 @@ dependencies = [
     "python-dotenv==1.0.1",
     "requests~=2.31",
     "scikit-learn~=1.4",
-    "sense2vec~=2.0",
-    "spacy~=3.7",
+    # "sense2vec~=2.0",
+    # "spacy~=3.7",
     "statsmodels~=0.14",
-    "tensorflow~=2.16",
-    "transformers~=4.38",
+    # "tensorflow~=2.16",
+    # "transformers~=4.38",
+    "typer~=0.9",
 ]
 
 # List additional groups of dependencies here (e.g. development
