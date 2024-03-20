@@ -1,0 +1,11 @@
+mkdocs-autorefs~=1.0
+mkdocs-material~=9.5
+mkdocs~=1.5
+mkdocstrings-python~=1.8
+mkdocstrings~=0.24
+mypy~=1.9
+pandas-stubs~=2.2
+pytest~=8.1
+requests-mock~=1.11
+ruff~=0.3
+types-requests~=2.31.0

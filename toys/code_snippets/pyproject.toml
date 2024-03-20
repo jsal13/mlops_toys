@@ -1,0 +1,293 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "CodeSnippets"
+version = "0.1.0"
+description = ""
+# readme = "README.md"
+requires-python = ">=3.10"
+# license = { file = "LICENSE" }
+
+# This field adds keywords for your project which will appear on the
+# project page. What does your project relate to?
+#
+# Note that this is a list of additional keywords, separated
+# by commas, to be used to assist searching for the distribution in a
+# larger catalog.
+# keywords = ["sample", "setuptools", "development"]
+
+authors = [{ name = "James Salvatore", email = "jimmy.c.salvatore@gmail.com" }]
+
+maintainers = [
+    { name = "James Salvatore", email = "jimmy.c.salvatore@gmail.com" },
+
+]
+
+
+# Classifiers help users find your project by categorizing it.
+#
+# For a list of valid classifiers, see https://pypi.org/classifiers/
+classifiers = [
+    # How mature is this project? Common values are
+    #   3 - Alpha
+    #   4 - Beta
+    #   5 - Production/Stable
+    "Development Status :: 3 - Alpha",
+
+    # # Indicate who your project is intended for
+    # "Intended Audience :: Developers",
+    # "Topic :: Software Development :: Build Tools",
+
+    # Pick your license as you wish
+    "License :: OSI Approved :: MIT License",
+
+    # Specify the Python versions you support here. In particular, ensure
+    # that you indicate you support Python 3. These classifiers are *not*
+    # checked by "pip install". See instead "requires-python" key in this file.
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+]
+
+dependencies = [
+    "altair~=5.2",
+    "attrs~=23.2",
+    "boto3~=1.34",
+    "faker~=24.1",
+    "ipykernel~=6.29",
+    "ipywidgets~=8.1",
+    "jupyter~=1.0",
+    "matplotlib~=3.8",
+    "nltk~=3.8",
+    "numpy~=1.26",
+    "pandas~=2.2",
+    "pandera~=0.18",
+    "polars~=0.20",
+    "python-dotenv==1.0.1",
+    "requests~=2.31",
+    "scikit-learn~=1.4",
+    "sense2vec~=2.0",
+    "spacy~=3.7",
+    "statsmodels~=0.14",
+    "tensorflow~=2.16",
+    "transformers~=4.38",
+]
+
+# List additional groups of dependencies here (e.g. development
+# dependencies). Users will be able to install these using the "extras"
+# syntax, for example:
+#
+#   $ pip install sampleproject[dev]
+#
+# Optional dependencies the project provides. These are commonly 
+# referred to as "extras". For a more extensive definition see:
+# https://packaging.python.org/en/latest/specifications/dependency-specifiers/#extras
+[project.optional-dependencies]
+dev = [
+    "mkdocs~=1.5",
+    "mkdocs-autorefs~=1.0",
+    "mkdocs-material~=9.5",
+    "mkdocstrings~=0.24",
+    "mkdocstrings-python~=1.8",
+    "mypy~=1.9",
+    "pandas-stubs~=2.2",
+    "pytest~=8.1",
+    "ruff~=0.3",
+    "types-requests~=2.31.0",
+    "requests-mock~=1.11",
+]
+
+# # List URLs that are relevant to your project
+# #
+# # This field corresponds to the "Project-URL" and "Home-Page" metadata fields:
+# # https://packaging.python.org/specifications/core-metadata/#project-url-multiple-use
+# # https://packaging.python.org/specifications/core-metadata/#home-page-optional
+# #
+# # Examples listed include a pattern for specifying where the package tracks
+# # issues, where the source is hosted, where to say thanks to the package
+# # maintainers, and where to support the project financially. The key is
+# # what's used to render the link text on PyPI.
+# [project.urls]
+# "Homepage" = "https://github.com/pypa/sampleproject"
+# "Bug Reports" = "https://github.com/pypa/sampleproject/issues"
+# "Funding" = "https://donate.pypi.org"
+# "Say Thanks!" = "http://saythanks.io/to/example"
+# "Source" = "https://github.com/pypa/sampleproject/"
+
+# # The following would provide a command line executable called `sample`
+# # which executes the function `main` from this package when invoked.
+# [project.scripts]
+# sample = "sample:main"
+
+
+# This is configuration specific to the `hatch` build backend.
+[tool.hatch.build.targets.sdist]
+# include = [
+#   "pkg/*.py",
+#   "/tests",
+# ]
+exclude = ["*.ipynb"]
+
+# [tool.hatch.build.targets.wheel]
+# packages = ["code_snippets"]
+
+
+[tool.ruff]
+# https://github.com/astral-sh/ruff
+
+select = [
+    "A",
+    "AIR",
+    "B",
+    "C",
+    "C4",
+    "D",
+    "DTZ",
+    "E",
+    "EM",
+    "F",
+    "G",
+    "I",
+    "N",
+    "NPY",
+    "PD",
+    "PL",
+    "PT",
+    "RUF",
+    "SIM",
+    "UP",
+    "W",
+]
+ignore = [
+    "D100", # Missing docstring in public module
+    "D104", # Missing docstring in public package.
+    "D105", # Missing docstring in magic method
+    "D107", # Missing docstring in __init__.
+    "D203", # 1 blank line required before class docstring
+    "D212", # Multi-line docstring summary should start on the first line.
+    "D417", # Requires documentation for every function parameter.
+]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F",
+    "G",
+    "I",
+    "N",
+    "Q",
+    "S",
+    "T",
+    "W",
+    "ANN",
+    "ARG",
+    "BLE",
+    "COM",
+    "DJ",
+    "DTZ",
+    "EM",
+    "ERA",
+    "EXE",
+    "FBT",
+    "ICN",
+    "INP",
+    "ISC",
+    "NPY",
+    "PD",
+    "PGH",
+    "PIE",
+    "PL",
+    "PT",
+    "PTH",
+    "PYI",
+    "RET",
+    "RSE",
+    "RUF",
+    "SIM",
+    "SLF",
+    "TCH",
+    "TID",
+    "TRY",
+    "UP",
+    "YTT",
+]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "tests",
+    "venv",
+]
+
+# Same as Black.
+line-length = 88
+indent-width = 4
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.10.
+target-version = "py310"
+
+[tool.ruff.pydocstyle]
+convention = "google"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.format]
+# Like Black, use double quotes for strings.
+quote-style = "double"
+
+# Like Black, indent with spaces, rather than tabs.
+indent-style = "space"
+
+# Like Black, respect magic trailing commas.
+skip-magic-trailing-comma = false
+
+# Like Black, automatically detect the appropriate line ending.
+line-ending = "auto"
+
+[tool.mypy]
+plugins = ['numpy.typing.mypy_plugin']
+
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_any_generics = true
+check_untyped_defs = true
+no_implicit_reexport = true
+disallow_untyped_defs = true
+ignore_missing_imports = false
+
+[[tool.mypy.overrides]]
+module = ["sklearn.*"]
+ignore_missing_imports = true
