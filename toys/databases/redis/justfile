@@ -1,0 +1,11 @@
+set shell := ["zsh", "-cu"]
+
+default:
+  just --list
+
+# Uses uv package to pip install.
+# Ref: https://github.com/astral-sh/uv?tab=readme-ov-file#highlights
+run:
+  docker compose up
+
+

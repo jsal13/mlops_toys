@@ -2,14 +2,14 @@ version: "3.9"
 services:
   trino:
     ports:
-      - 8080:8080
-      - 9081:9081
+      - "8080:8080"
     image: "trinodb/trino:430"
     volumes:
       - ./configs/etc:/usr/lib/trino/etc:ro
       - ./configs/catalog:/etc/trino/catalog
     depends_on:  # Comment out anything unnecessary...
       - pg-db
+      - mysql-db
 
   # For mysql, postgres, etc., debugging.
   adminer:
@@ -83,7 +83,7 @@ services:
   #   depends_on:
   #     - minio
 
-networks:
-  default:
-    name: dbt-net
-    # external: true
+# networks:
+#   default:
+#     name: dbt-net
+#     # external: true

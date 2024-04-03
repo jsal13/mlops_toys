@@ -1,0 +1,9 @@
+set shell := ["zsh", "-cu"]
+
+default:
+  just --list
+
+run:
+  docker compose up
+
+

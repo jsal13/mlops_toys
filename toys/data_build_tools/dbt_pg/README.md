@@ -16,15 +16,18 @@ An example of the data build tool ([dbt](https://github.com/dbt-labs/dbt-core)) 
 
 First run `docker compose up` to create a postgres db.
 
-To make a venv for dbt:
+Using `just`:
 
 ```shell
-python3 -m venv dbt-env
-source dbt-env/bin/activate
-dbt-env/bin/pip install dbt-postgres
+just venv
+just data
+just seed
+just test
+just run
+just docs
 ```
 
-To generate data and run dbt:
+OR, without `just`:
 
 ```shell
 cd seeds && jafgen --years 1  && cd .. # Generate data.

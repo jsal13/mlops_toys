@@ -15,21 +15,5 @@ venv:
     && pip install uv \
     && uv pip install -r requirements.txt
 
-# test:
-#   python -m pytest --doctest-modules ./tests
-data:
-    cd seeds && jafgen --years 1 && cd ..
-
-seed:
-    dbt seed --profiles-dir .  # Insert Seed stuff.
-
-test:
-    dbt test --profiles-dir .  # Runs tests.
-    dbt debug --profiles-dir .  # Checks configs.
-
-run: 
-    dbt run --profiles-dir .  # Runs model creation, etc.
-
-docs:
-    dbt docs generate
-    dbt docs serve --port 8001
+run:
+  docker compose up

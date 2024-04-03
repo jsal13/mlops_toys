@@ -83,7 +83,7 @@ services:
   #   depends_on:
   #     - minio
 
-networks:
-  default:
-    name: dbt-net
-    # external: true
+# networks:
+#   default:
+#     name: dbt-net
+#     # external: true

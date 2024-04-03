@@ -1,2 +1,2 @@
-hiredis>=2.2.3
-redis>=5.0.1
+hiredis~=2.2.3
+redis~=5.0.1

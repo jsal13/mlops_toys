@@ -1,0 +1,6 @@
+pandas~=2.2
+scikit-learn~=1.4.1
+matplotlib~=3.8
+shap~=0.45
+numpy~=1.26
+ucimlrepo~=0.0

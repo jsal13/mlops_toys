@@ -2,7 +2,7 @@ services:
   
   pg-datagen:
     build:
-      context: ./trino/pg/datagen
+      context: ./pg/datagen
     volumes:
       - pg-data-vol:/data
 

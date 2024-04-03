@@ -14,11 +14,3 @@ venv:
     && source .venv/bin/activate \
     && pip install uv \
     && uv pip install -r requirements.txt
-
-make-data:
-    cd ./data \
-    && jafgen --years 1 \
-    && mv jaffle-data/* . \
-    && rm -r jaffle-data
-
-
