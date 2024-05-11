@@ -2,30 +2,30 @@
 
 ## Last Updated
 
-2023-11-25
+2024-05-11
 
-## Status (If not Working...)
+## Status
 
-**Not Working.**
-
-If not working:
-
-- [x] In progress
+**Working.**
 
 ## Description
 
 Instance of [localstack](https://github.com/localstack/localstack) in Docker Compose.
+
+Current components used:
+
+- S3
 
 ## Quickstart
 
 Start the services using
 
 ```shell
-docker compose up
+just up
 ```
 
-## Credentials
+Stop the services using
 
-## Notes
-
-## Resources
+```shell
+just down
+```
