@@ -1,5 +1,4 @@
 import os
-import logging
 import shutil
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -9,22 +8,14 @@ import boto3
 import numpy as np
 import polars as pl
 from boto3.session import Session
-from botocore.exceptions import ClientError
 
 if TYPE_CHECKING:
     from mypy_boto3_s3.client import S3Client
-    from mypy_boto3_glue.client import GlueClient
-
+    from mypy_boto3_s3.service_resource import Bucket
 
 DATA_FOLDER = Path(__file__).parent.resolve().joinpath("data")
 BUCKET_NAME = "test-bucket"
 LOCALSTACK_ENDPOINT_URL = "http://localstack:4566"
-GLUE_CRAWLER_NAME = "TEST_CRAWLER"
-GLUE_DATABASE_NAME = "TESTDB"
-AWS_REGION = "us-east-1"
-AWS_CREDS = {"aws_access_key_id": "test", "aws_secret_access_key": "test"}
-
-logger = logging.getLogger()
 
 
 def create_data_folder(path: str = DATA_FOLDER) -> None:
@@ -72,41 +63,8 @@ def create_and_populate_s3_bucket() -> None:
         )
 
 
-def create_glue_stuff() -> None:
-    glue_client: GlueClient = boto3.client(
-        "glue",
-        region_name=AWS_REGION,
-        use_ssl=False,
-        aws_access_key_id=AWS_CREDS["aws_access_key_id"],
-        aws_secret_access_key=AWS_CREDS["aws_secret_access_key"],
-        aws_session_token=None,
-    )
-    try:
-        glue_client.create_crawler(
-            Name=GLUE_CRAWLER_NAME,
-            Role="arn:aws:iam::000000000000:root",
-            DatabaseName=GLUE_DATABASE_NAME,
-            # TablePrefix=db_prefix,
-            Targets={
-                "S3Targets": [
-                    {"Path": str(Path(LOCALSTACK_ENDPOINT_URL).joinpath(BUCKET_NAME))}
-                ]
-            },
-        )
-        print("okay, I'm having a good time.  LAGGY.")
-    except ClientError as err:
-        logger.error(
-            "Couldn't create crawler. Here's why: %s: %s",
-            err.response["Error"]["Code"],
-            err.response["Error"]["Message"],
-        )
-        raise
-
-
 if __name__ == "__main__":
-    print("hi")
-    create_glue_stuff()
-    # import time
+    import time
 
-    # time.sleep(10)  # Lets the localstack startup.
-    # create_and_populate_s3_bucket()
+    time.sleep(10)  # Lets the localstack startup.
+    create_and_populate_s3_bucket()

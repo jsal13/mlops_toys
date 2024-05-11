@@ -1,0 +1,54 @@
+services:
+
+  localstack:
+    container_name: "${LOCALSTACK_DOCKER_NAME-localstack-main}"
+    image: localstack/localstack:3.4
+    ports:
+      - "127.0.0.1:4566:4566"            # LocalStack Gateway
+      - "127.0.0.1:4510-4559:4510-4559"  # external services port range
+    environment:
+      # LocalStack configuration: https://docs.localstack.cloud/references/configuration/
+      - DEBUG=${DEBUG:-0}
+    volumes:
+      - "${LOCALSTACK_VOLUME_DIR:-./volume}:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+
+  localstackdatainit:
+    build:
+      dockerfile: Dockerfile_init_data
+      context: localstack
+    depends_on:
+      - localstack
+      
+  spark-iceberg:
+      image: tabulario/spark-iceberg
+      container_name: spark-iceberg
+      build: spark/
+      depends_on:
+        - rest
+        - localstack
+        - localstackdatainit
+      volumes:
+        - ./notebooks:/home/iceberg/notebooks/notebooks
+      environment:
+        - AWS_ACCESS_KEY_ID=admin
+        - AWS_SECRET_ACCESS_KEY=example
+        - AWS_REGION=us-east-1
+      ports:
+        - 8888:8888
+        - 8080:8080
+        - 10000:10000
+        - 10001:10001
+  
+  rest:
+    image: tabulario/iceberg-rest
+    container_name: iceberg-rest
+    ports:
+      - 8181:8181
+    environment:
+      - AWS_ACCESS_KEY_ID=admin
+      - AWS_SECRET_ACCESS_KEY=example
+      - AWS_REGION=us-east-1
+      - CATALOG_WAREHOUSE=s3://test-bucket/
+      - CATALOG_IO__IMPL=org.apache.iceberg.aws.s3.S3FileIO
+      - CATALOG_S3_ENDPOINT=http://localstack:4566
