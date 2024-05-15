@@ -18,22 +18,25 @@ Most of these will be contained to a single folder.  The README in that folder w
 - :white_check_mark: data_frontend :: streamlit
 - :white_check_mark: data_generators :: clf_log_generator
 - :white_check_mark: data_generators :: flog
+data_lake :: iceberg
 - :white_check_mark: data_logging :: whylogs
-- :white_check_mark:data_platforms :: mlflow
+data_platforms :: mlflow
 - :white_check_mark: data_processing :: pyspark
-- :white_check_mark: databases :: duckdb
+databases :: duckdb
 - :white_check_mark: databases :: mysql
 - :white_check_mark: databases :: pg
 - :white_check_mark: databases :: redis
-- :white_check_mark: databases :: trino
+databases :: trino
 - :white_check_mark: doc_styles :: diataxis
 - :white_check_mark: ds_models :: utils
 - :white_check_mark: graphql :: strawberry_graphql
 - :construction: local_dev :: localstack
 - :construction: logging :: grafana
 - :construction: logging :: prometheus
+- :white_check_mark: message_queues :: rabbitmq
 - :white_check_mark: model_explanation :: shap
 - :white_check_mark: orchestration_tools :: airflow
+- :white_check_mark: search_engine :: elasticsearch
 - :white_check_mark: streaming :: kafka_consumer_producer
 - :white_check_mark: streaming :: kinesis_streaming
 - :white_check_mark: terraform_template :: \_template
