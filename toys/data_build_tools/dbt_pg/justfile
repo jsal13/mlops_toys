@@ -18,7 +18,7 @@ venv:
 # test:
 #   python -m pytest --doctest-modules ./tests
 data:
-    cd seeds && jafgen --years 1 && cd ..
+    cd seeds && jafgen 1 && cd ..
 
 seed:
     dbt seed --profiles-dir .  # Insert Seed stuff.

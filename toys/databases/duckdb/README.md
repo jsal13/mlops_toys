@@ -22,7 +22,7 @@ An example duckdb in-process database with jaffie-data tables.
 2. Run `just make-data` to make data **OR** use the following command in the `./data` folder:
 
     ```shell
-    jafgen --years 1 \
+    jafgen 1 \
         && mv jaffle-data/* . \
         && rm -r jaffle-data
     ```

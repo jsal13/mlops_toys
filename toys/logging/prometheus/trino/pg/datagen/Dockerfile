@@ -11,6 +11,6 @@ COPY init.sql ./
 RUN pip3 install --disable-pip-version-check \
     --no-cache-dir -r requirements.txt
 
-RUN jafgen --years 1 \
+RUN jafgen 1 \
     && mv jaffle-data/* . \
     && rm -r jaffle-data

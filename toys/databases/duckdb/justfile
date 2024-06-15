@@ -17,7 +17,7 @@ venv:
 
 make-data:
     cd ./data \
-    && jafgen --years 1 \
+    && jafgen 1 \
     && mv jaffle-data/* . \
     && rm -r jaffle-data
 

@@ -1,2 +1,2 @@
-jafgen~=0.3
+jafgen~=0.4
 duckdb~=0.9

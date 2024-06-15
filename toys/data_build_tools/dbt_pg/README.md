@@ -30,7 +30,7 @@ just docs
 OR, without `just`:
 
 ```shell
-cd seeds && jafgen --years 1  && cd .. # Generate data.
+cd seeds && jafgen 1  && cd .. # Generate data.
 dbt seed --profiles-dir . # Runs seeding.
 dbt test --profiles-dir . # Runs tests.
 dbt debug --profiles-dir . # Checks configs.
