@@ -1,0 +1,23 @@
+services:
+  dagster-dagit:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    ports:
+      - 3000:3000
+  dagster-daemon:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    command: "dagster-daemon run"
+  dagster-postgres:
+    image: postgres:13.3
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=example
+    volumes:
+      - dagster-postgres:/var/lib/postgresql/data
+volumes:
+  dagster-postgres:
+    driver: local
