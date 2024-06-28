@@ -53,55 +53,6 @@ classifiers = [
     "Programming Language :: Python :: 3 :: Only",
 ]
 
-dependencies = [
-    "altair~=5.2",
-    "attrs~=23.2",
-    "boto3~=1.34",
-    "Faker~=24.4",
-    "ipykernel~=6.29",
-    "ipywidgets~=8.1",
-    "jupyter~=1.0",
-    "matplotlib~=3.8",
-    "nltk~=3.8",
-    "numpy~=1.26",
-    "pandas~=2.2",
-    "pandera~=0.18",
-    "polars~=0.20",
-    "python-dotenv==1.0.1",
-    "requests~=2.31",
-    "scikit-learn~=1.4",
-    # "sense2vec~=2.0",
-    # "spacy~=3.7",
-    "statsmodels~=0.14",
-    # "tensorflow~=2.16",
-    # "transformers~=4.38",
-    "typer~=0.9",
-]
-
-# List additional groups of dependencies here (e.g. development
-# dependencies). Users will be able to install these using the "extras"
-# syntax, for example:
-#
-#   $ pip install sampleproject[dev]
-#
-# Optional dependencies the project provides. These are commonly 
-# referred to as "extras". For a more extensive definition see:
-# https://packaging.python.org/en/latest/specifications/dependency-specifiers/#extras
-[project.optional-dependencies]
-dev = [
-    "mkdocs~=1.5",
-    "mkdocs-autorefs~=1.0",
-    "mkdocs-material~=9.5",
-    "mkdocstrings~=0.24",
-    "mkdocstrings-python~=1.8",
-    "mypy~=1.9",
-    "pandas-stubs~=2.2",
-    "pytest~=8.1",
-    "ruff~=0.3",
-    "types-requests~=2.31.0",
-    "requests-mock~=1.11",
-]
-
 # # List URLs that are relevant to your project
 # #
 # # This field corresponds to the "Project-URL" and "Home-Page" metadata fields:
