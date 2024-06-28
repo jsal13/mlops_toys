@@ -43,14 +43,10 @@ databases :: trino
 
 ## Making a New Toy
 
-The only requirements are:
+Use:
 
-- The folder must contain a README made from `README.md.tmpl`.
+```shell
+just generate toy_name
+```
 
-- The folder must have one of the following (if applicable):
-
-  - Dockerfiles or a docker-compose.yaml
-
-  - Terraform-related files
-
-  - Helm-related files
+Where `toy_name` is the name of the toy.  It will make a folder in root.  Move it to where it should be.
