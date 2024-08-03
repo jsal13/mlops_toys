@@ -40,7 +40,7 @@ services:
     volumes:
       - data-vol:/docker-entrypoint-initdb.d
     ports:
-      - 5432:5432  # !!
+      - 5432:5432
     networks:
       - metanet1
     depends_on:
