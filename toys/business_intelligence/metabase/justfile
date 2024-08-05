@@ -7,6 +7,11 @@ create_users:
   # If you change the MB port, change it here too.
   MB_HOSTNAME=localhost MB_PORT=3000 ./create_users.sh
 
+up:
+  docker compose up --remove-orphans -w
 
-run:
-  docker compose up
+down:
+  docker compose down --remove-orphans --volumes
+
+build:
+  docker compose build
