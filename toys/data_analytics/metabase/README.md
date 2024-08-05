@@ -1,41 +1,37 @@
-# Metabase
+# Metabase with Postgres
 
 ## Last Updated
 
-2024-07-05
+2024-08-03
 
 ## Status
 
-**Not Working.**
-
-If not working:
-
-- [ ] Error
-
-- [ ] In progress
+**Working.**
 
 ## Description
 
-Toy of [Metabase](https://www.metabase.com/).
+An example of Metabase including a postgres database.  Uses jaffie-data tables.
 
 ## Quickstart
 
 ```shell
-just up
+# Run the metabase compose.
+docker compose up
+
+# After it's up, create sample users with its API.
+just create-users 
 ```
+
+Metabase is at <http://localhost:3000>.  You're able to use adminer to see the DB at <http://localhost:8080/>.  You can connect to the PG DB via port 5432.
 
 ## Credentials
 
-|                     |                 |
-| ------------------- | --------------- |
-| `MB_DB_DBNAME`      | `metabaseappdb` |
-| `MB_DB_PORT`        | `5432`          |
-| `MB_DB_USER`        | `admin`         |
-| `MB_DB_PASS`        | `example`       |
-| `MB_DB_HOST`        | `postgres`      |
-| `POSTGRES_USER`     | admin           |
-| `POSTGRES_PASSWORD` | `example`       |
-| `POSTGRES_DB`       | `metabaseappdb` |
+|             |                        |
+| ----------- | ---------------------- |
+| MB User     | `admin@metabase.local` |
+| MB Pass     | `example1234`          |
+| PG User     | `admin`                |
+| PG Password | `example`              |
 
 ## Notes
 
