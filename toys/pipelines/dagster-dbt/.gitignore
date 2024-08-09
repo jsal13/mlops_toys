@@ -1,0 +1,8 @@
+
+target/
+dbt_modules/
+logs/
+**/.DS_Store
+
+# Include the CSVs from Jaffle.  They're small.
+!seeds/*.csv
