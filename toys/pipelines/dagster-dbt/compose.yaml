@@ -1,0 +1,14 @@
+services:
+  dagster:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: ./_raw_data
+        target: /app/_raw_data
+
+volumes:
+  rawdata:
