@@ -1,5 +1,9 @@
 dagster~=1.8
 dagster-dbt~=0.24
+dagster-webserver~=1.8
+dagster-duckdb~=0.24
+dagster-cloud~=1.8
+dbt-duckdb<1.9
 pandas~=2.2
 duckdb~=1.0
 pyarrow~=15.0

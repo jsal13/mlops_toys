@@ -2,6 +2,7 @@
 *.complete
 *.err
 *.out
+order_count_chart.html
 
 target/
 dbt_modules/
@@ -10,6 +11,7 @@ logs/
 
 # Include the CSVs from Jaffle.  They're small.
 !seeds/*.csv
+!_raw_data/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
