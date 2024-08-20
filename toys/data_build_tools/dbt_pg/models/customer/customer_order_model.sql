@@ -1,7 +1,7 @@
-select
-  rc.name
-  , ro.ordered_at	
-  , ro.order_total
-from
-  {{ ref('raw_customers') }} rc join {{ ref('raw_orders') }} ro
-  on rc.id = ro.customer
+SELECT
+    RC.NAME,
+    RO.ORDERED_AT,
+    RO.ORDER_TOTAL
+FROM
+    {{ ref('raw_customers') }} AS RC INNER JOIN {{ ref('raw_orders') }} AS RO
+    ON RC.ID = RO.CUSTOMER
