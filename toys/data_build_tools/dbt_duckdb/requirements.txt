@@ -3,3 +3,4 @@ dbt-duckdb==1.8.2
 requests==2.31.0
 dagster-dbt 
 dagster-webserver
+sqlfluff-templater-dbt

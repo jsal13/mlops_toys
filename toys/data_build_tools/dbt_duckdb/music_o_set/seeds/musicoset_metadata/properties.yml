@@ -57,7 +57,7 @@ seeds:
       columns:
         - name: artist_id
         - name: album_id
-        - name: release_data
+        - name: release_date
         - name: release_date_precision
 
   - name: songs

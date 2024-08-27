@@ -1,4 +1,4 @@
-{{ config(materialized='table', dist='album_id') }}
+{{ config(materialized='view', dist='album_id') }}
 
 
 with
