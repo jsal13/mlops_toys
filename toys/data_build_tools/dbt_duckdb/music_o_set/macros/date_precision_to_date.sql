@@ -23,7 +23,10 @@
                     )::date
             end
         when
-            
+            {{ date_col_precision }} = 'month'
+            then (
+            {{ date_col }} || '-01')::date
+        when
             {{ date_col_precision }} = 'year'
             then (
             {{ date_col }} || '-01-01')::date

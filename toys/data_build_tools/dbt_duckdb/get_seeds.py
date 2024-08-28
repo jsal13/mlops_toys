@@ -1,9 +1,9 @@
 import os
 import zipfile
 import io
-import shutil
-import glob
-from pathlib import Path
+
+import pandas as pd
+
 
 import requests as req
 
@@ -40,6 +40,21 @@ def clean_seeds_folder() -> None:
     #     os.removedirs(seed_dir)
 
 
+def clean_seeds() -> None:
+    """Clean certain seeds for malformed json, etc."""
+    songs_loc = os.path.join(SEEDS_DIR, METADATA_DIR, "songs.csv")
+
+    df = pd.read_csv(songs_loc, delimiter='\t')
+
+    def f(x):
+        """Removes errant 's from this json and makes it readable by duckdb."""
+        d = eval(x)  # I'm so sorry.
+        return [{"artist_id": k,  "artist_name": v.replace("'", "").replace("\"", "")} for k, v in d.items()]
+        
+    df["artists"] = df["artists"].apply(f)
+    df.to_csv(songs_loc, sep="\t", index=False)
+
 if __name__ == "__main__":
     download_seeds()
     clean_seeds_folder()
+    clean_seeds()

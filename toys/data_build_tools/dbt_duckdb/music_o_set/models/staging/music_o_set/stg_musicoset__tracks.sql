@@ -5,13 +5,13 @@ with
 
 source as (
 
-    select * from {{ ref('tracks') }}
+  select * from {{ ref('tracks') }}
 
 ),
 
 renamed as (
 
-    select
+  select
 
     -- ids
     song_id,
@@ -19,9 +19,11 @@ renamed as (
 
     -- numerics
     track_number::smallint,
-    {{ date_precision_to_date(release_date, release_date_precision) }}
-
-    from source
+    {{ date_precision_to_date(
+      'release_date', 
+      'release_date_precision'
+    ) }} as release_date
+  from source
 
 )
 

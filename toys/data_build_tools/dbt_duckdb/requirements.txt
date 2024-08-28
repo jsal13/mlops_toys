@@ -4,3 +4,4 @@ requests==2.31.0
 dagster-dbt 
 dagster-webserver
 sqlfluff-templater-dbt
+pandas

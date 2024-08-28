@@ -67,7 +67,7 @@ seeds:
         song_id: varchar(22)
         song_name: varchar(128)
         billboard: varchar(128)
-        artists: varchar(512)
+        artists: json
         popularity: varchar(128)
         explicit: boolean
         song_type: varchar(256)
