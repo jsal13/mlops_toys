@@ -1,10 +1,9 @@
+import io
+import json
 import os
 import zipfile
-import io
 
 import pandas as pd
-
-
 import requests as req
 
 URL_METADATA = "https://github.com/marianaossilva/DSW2019/raw/master/docs/assets/data/musicoset_metadata.zip"
@@ -46,10 +45,11 @@ def clean_seeds() -> None:
 
     df = pd.read_csv(songs_loc, delimiter='\t')
 
-    def f(x):
+    def f(x: str) -> str:
         """Removes errant 's from this json and makes it readable by duckdb."""
         d = eval(x)  # I'm so sorry.
-        return [{"artist_id": k,  "artist_name": v.replace("'", "").replace("\"", "")} for k, v in d.items()]
+        artist_list = [{"artist_id": k,  "artist_name": v.replace("'", "").replace("\"", "")} for k, v in d.items()]
+        return json.dumps(artist_list)
         
     df["artists"] = df["artists"].apply(f)
     df.to_csv(songs_loc, sep="\t", index=False)
