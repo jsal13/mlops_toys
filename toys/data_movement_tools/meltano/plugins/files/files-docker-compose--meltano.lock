@@ -1,0 +1,11 @@
+{
+  "plugin_type": "files",
+  "name": "files-docker-compose",
+  "namespace": "files_docker_compose",
+  "variant": "meltano",
+  "label": "Docker Compose",
+  "docs": "https://hub.meltano.com/files/files-docker-compose--meltano",
+  "repo": "https://github.com/meltano/files-docker-compose",
+  "pip_url": "git+https://github.com/meltano/files-docker-compose.git",
+  "logo_url": "https://hub.meltano.com/assets/logos/files/docker-compose.png"
+}

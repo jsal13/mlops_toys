@@ -1,0 +1,40 @@
+services:
+  meltano:
+    image: meltano/meltano:v3.5.1
+    volumes:
+      - .:/project
+    entrypoint:  ./docker-entrypoint.sh
+
+  db:
+    image: postgres:16.0-alpine3.17
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: example
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+
+
+  # # Uncomment if you are using the Airflow orchestrator, delete otherwise
+  # airflow-scheduler:
+  #   <<: *meltano-image
+  #   command: invoke airflow scheduler
+  #   expose:
+  #     - 8793
+  #   restart: unless-stopped
+  #
+  # airflow-webserver:
+  #   <<: *meltano-image
+  #   command: invoke airflow webserver
+  #   expose:
+  #     - 8080
+  #   ports:
+  #     - 8080:8080
+  #   restart: unless-stopped

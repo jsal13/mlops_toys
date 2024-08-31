@@ -1,0 +1,46 @@
+version: 1
+default_environment: dev
+project_id: 197382e1-aa6e-41e7-9c41-4a8b9298fb7c
+environments:
+- name: dev
+- name: staging
+- name: prod
+plugins:
+  extractors:
+  - name: tap-github
+    variant: meltanolabs
+    pip_url: git+https://github.com/MeltanoLabs/tap-github.git
+    config:
+      repositories:
+      - jsal13/mlops_toys
+      - numpy/numpy
+      start_date: '2023-01-01'
+    select:
+    - commits.url
+    - commits.sha
+    - commits.commit_timestamp
+    - commits.*
+  loaders:
+  - name: target-jsonl
+    variant: andyh1203
+    pip_url: target-jsonl
+    config:
+      destination_path: output
+  - name: target-postgres
+    variant: meltanolabs
+    pip_url: meltanolabs-target-postgres
+    config:
+      user: admin
+      database: postgres
+      add_record_metadata: true
+      host: db
+  utilities:
+  - name: dbt-postgres
+    variant: dbt-labs
+    pip_url: dbt-core dbt-postgres git+https://github.com/meltano/dbt-ext.git@main
+    config:
+      host: db
+      port: 5432
+      user: admin
+      dbname: postgres
+      schema: analytics
