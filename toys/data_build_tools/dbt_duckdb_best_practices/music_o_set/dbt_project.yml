@@ -37,3 +37,4 @@ seeds:
 
 models:
   music_o_set:
+    +materialized: view

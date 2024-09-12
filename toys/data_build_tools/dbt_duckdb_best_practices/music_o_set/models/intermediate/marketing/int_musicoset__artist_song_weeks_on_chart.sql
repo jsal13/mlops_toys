@@ -2,8 +2,6 @@
 
 with
 
-
-
 source as (
 
   select
