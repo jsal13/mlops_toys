@@ -1,0 +1,13 @@
+set shell := ["zsh", "-cu"]
+
+default:
+  just --list
+
+build:
+  npx tailwindcss -i ./src/input.css -o ./src/output.css
+
+watch:
+  npx tailwindcss -i ./src/input.css -o ./src/output.css --watch
+
+run:
+  cd src && python -m http.server
