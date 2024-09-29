@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: loancorp
+    database: database
+    schema: main
+    description: LoanCorp data from the DuckDB database.
+
+    tables:
+      - name: customers
+      - name: lenders
+      - name: loan_customer_lookup
+      - name: loan_info_rows
+      - name: statuses

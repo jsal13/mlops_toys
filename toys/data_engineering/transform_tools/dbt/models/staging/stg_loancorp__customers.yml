@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: stg_loancorp__customers
+    description: '{{ doc("stg_loancorp__customers") }}'
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: customer_id
+        description: '{{ doc("loancorp__customer_id") }}'
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: full_name
+        description: '{{ doc("loancorp__full_name") }}'
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+
+      - name: customer_address
+        description: '{{ doc("loancorp__customer_address") }}'
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+
+      - name: social_security_number
+        description: '{{ doc("loancorp__social_security_number") }}'
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+
+      - name: customer_age
+        description: '{{ doc("loancorp__customer_age") }}'
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_to_exist
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer

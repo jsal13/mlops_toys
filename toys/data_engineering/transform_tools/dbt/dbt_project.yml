@@ -1,0 +1,26 @@
+name: "dbt_best_practices"
+version: "1.0.0"
+
+# Copy the profile.yml into ~/.dbt if DBT can't find it.
+profile: "dbt_best_practices"
+
+model-paths: ["models", "sources"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# directories to be removed by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_best_practices:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table
