@@ -1,3 +1,5 @@
+NOTE: Use `misc/loancorp_data_gen` to generate a duckdb db.  Update `profiles.yml` with the location of the db.
+
 Welcome to your new dbt project!
 
 ### Using the starter project
