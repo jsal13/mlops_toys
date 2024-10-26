@@ -3,6 +3,10 @@ version: 2
 models:
   - name: total_payments_per_customer
     description: '{{ doc("finance__mart_total_payments_per_customer") }}'
+    config:
+      contract:
+        enforced: true
+
     columns:
       - name: customer_id
         description: '{{ doc("loancorp__customer_id") }}'

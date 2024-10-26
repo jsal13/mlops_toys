@@ -3,6 +3,10 @@ version: 2
 models:
   - name: int_loans_due_amounts_aggregated
     description: '{{ doc("finance__int_loans_due_amounts_aggregated")}}'
+    config:
+      contract:
+        enforced: true
+
     columns:
       - name: customer_id
         description: '{{ doc("loancorp__customer_id") }}'
