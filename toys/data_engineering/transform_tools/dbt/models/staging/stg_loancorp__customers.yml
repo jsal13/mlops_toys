@@ -12,7 +12,6 @@ models:
         description: '{{ doc("loancorp__customer_id") }}'
         data_type: integer
         data_tests:
-          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: integer
 
@@ -20,7 +19,6 @@ models:
         description: '{{ doc("loancorp__full_name") }}'
         data_type: varchar
         data_tests:
-          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
 
@@ -28,7 +26,6 @@ models:
         description: '{{ doc("loancorp__customer_address") }}'
         data_type: varchar
         data_tests:
-          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
 
@@ -36,7 +33,6 @@ models:
         description: '{{ doc("loancorp__social_security_number") }}'
         data_type: varchar
         data_tests:
-          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: varchar
 
@@ -44,6 +40,5 @@ models:
         description: '{{ doc("loancorp__customer_age") }}'
         data_type: integer
         data_tests:
-          - dbt_expectations.expect_column_to_exist
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: integer
