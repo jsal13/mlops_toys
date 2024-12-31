@@ -1,0 +1,52 @@
+version: 2
+
+models:
+  - name: base_loancorp__customers
+    description: '{{ doc("base_loancorp__customers") }}'
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: customer_id
+        description: '{{ doc("loancorp__customer_id") }}'
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_be_unique
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: full_name
+        description: The first and last name of the customer.
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+
+      - name: customer_address
+        description: The current address of the customer.
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+
+      - name: ssn
+        description: The social security number of the customer.
+        data_type: varchar
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: varchar
+          - dbt_expectations.expect_column_values_to_match_like_pattern:
+              like_pattern: "*****%"
+
+      - name: customer_age
+        description: The age of the customer.
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer

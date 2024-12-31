@@ -5,3 +5,7 @@ packages:
     version: 0.10.4
   - package: calogica/dbt_date
     version: 0.10.1
+  - package: pvcy/dbt_privacy
+    version: 0.3.1
+  - package: dbt-labs/codegen
+    version: 0.13.1

@@ -1,0 +1,131 @@
+version: 2
+
+models:
+  - name: base_loancorp__loan_info
+    description: This table holds information about loans.
+
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: loan_id
+        description: '{{ doc("loancorp__loan_id") }}'
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_unique
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: loan_status_id
+        description: Foreign key for the `*_loancorp__statuses` table.
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: lender_id
+        description: '{{ doc("loancorp__lender_id") }}'
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: due_interest_amount
+        description: The amount the customer owes in interest.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: due_principal_amount
+        description: The amount the customer owes of the principal.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: due_escrow_amount
+        description: The amount the customer owes of the escrow.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: due_fees_amount
+        description: The amount the customer owes of the fees.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: previous_payment_amount
+        description: The previous payment the customer successfully made.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: next_payment_amount
+        description: The next payment the customer is schedule to make.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: credit_limit_amount
+        description: The credit limit of the customer.
+        data_type: double
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: double
+
+      - name: number_of_unique_delinquencies
+        description: The number of unique delinquencies the customer has at loancorp.
+        data_type: integer
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: integer
+
+      - name: recorded_at
+        description: The timestamp this row was created on.
+        data_type: timestamp_ns
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: timestamp_ns
+
+      - name: followup_on
+        description: The date a followup is scheduled.
+        data_type: date
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
+
+      - name: previous_payment_on
+        description: The date of the most recent previous payment.
+        data_type: date
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date
+
+      - name: next_payment_on
+        description: The date the next payment is due.
+        data_type: date
+        data_tests:
+          - dbt_expectations.expect_column_values_to_not_be_null
+          - dbt_expectations.expect_column_values_to_be_of_type:
+              column_type: date

@@ -10,5 +10,5 @@ sources:
       - name: customers
       - name: lenders
       - name: loan_customer_lookup
-      - name: loan_info_rows
+      - name: loan_info
       - name: statuses

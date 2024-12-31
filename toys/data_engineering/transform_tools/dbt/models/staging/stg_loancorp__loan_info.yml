@@ -2,128 +2,64 @@ version: 2
 
 models:
   - name: stg_loancorp__loan_info
-    description: '{{ doc("stg_loancorp__loan_info") }}'
-    config:
-      contract:
-        enforced: true
-
+    description: ""
     columns:
       - name: loan_id
-        description: '{{ doc("loancorp__loan_id") }}'
         data_type: integer
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: integer
+        description: "The ID of the associated loan."
 
       - name: loan_status_id
-        description: '{{ doc("loancorp__loan_status_id") }}'
         data_type: integer
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: integer
+        description: "Foreign key for the `*_loancorp__statuses` table."
 
       - name: lender_id
-        description: '{{ doc("loancorp__lender_id") }}'
         data_type: integer
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: integer
+        description: "The ID of the associated lender."
 
       - name: due_interest_amount
-        description: '{{ doc("loancorp__due_interest_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The amount the customer owes in interest."
 
       - name: due_principal_amount
-        description: '{{ doc("loancorp__due_principal_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The amount the customer owes of the principal."
 
       - name: due_escrow_amount
-        description: '{{ doc("loancorp__due_escrow_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The amount the customer owes of the escrow."
 
       - name: due_fees_amount
-        description: '{{ doc("loancorp__due_fees_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The amount the customer owes of the fees."
 
       - name: previous_payment_amount
-        description: '{{ doc("loancorp__previous_payment_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The previous payment the customer successfully made."
 
       - name: next_payment_amount
-        description: '{{ doc("loancorp__next_payment_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The next payment the customer is schedule to make."
 
       - name: credit_limit_amount
-        description: '{{ doc("loancorp__credit_limit_amount") }}'
         data_type: double
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: double
+        description: "The credit limit of the customer."
 
       - name: number_of_unique_delinquencies
-        description: '{{ doc("loancorp__number_of_unique_delinquencies") }}'
         data_type: integer
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: integer
+        description: "The number of unique delinquencies the customer has at loancorp."
 
       - name: recorded_at
-        description: '{{ doc("loancorp__recorded_at") }}'
         data_type: timestamp_ns
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: timestamp_ns
+        description: "The timestamp this row was created on."
 
       - name: followup_on
-        description: '{{ doc("loancorp__followup_on") }}'
         data_type: date
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: date
+        description: "The date a followup is scheduled."
 
       - name: previous_payment_on
-        description: '{{ doc("loancorp__previous_payment_on") }}'
         data_type: date
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: date
+        description: "The date of the most recent previous payment."
 
       - name: next_payment_on
-        description: '{{ doc("loancorp__next_payment_on") }}'
         data_type: date
-        data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: date
+        description: "The date the next payment is due."

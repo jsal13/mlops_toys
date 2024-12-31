@@ -1,25 +1,29 @@
+version: 2
+
 models:
-  - name: stg_loancorp__total_loans_per_customer
-    description: Holds information about the number of loans per customer.
+  - name: base_loancorp__loan_customer_lookup
+    description: Lookup table for customer_ids and loan_ids.
     config:
       contract:
         enforced: true
 
+    data_tests:
+      - dbt_expectations.expect_compound_columns_to_be_unique:
+          column_list: ["loan_id", "customer_id"]
+
     columns:
-      - name: customer_id
-        description: '{{ doc("loancorp__customer_id") }}'
+      - name: loan_id
+        description: The ID of the associated loan.
         data_type: integer
         data_tests:
-          - dbt_expectations.expect_column_values_to_be_unique
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: integer
 
-      - name: number_of_loan_ids
-        description: "The number of distinct loan_ids assigned to the corresponding customer_id."
+      - name: customer_id
+        description: The ID of the associated customer.
         data_type: integer
         data_tests:
-          - dbt_expectations.expect_column_values_to_be_unique
           - dbt_expectations.expect_column_values_to_not_be_null
           - dbt_expectations.expect_column_values_to_be_of_type:
               column_type: integer

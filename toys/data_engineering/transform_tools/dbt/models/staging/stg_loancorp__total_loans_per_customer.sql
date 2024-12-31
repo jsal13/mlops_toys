@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ ref("stg_loancorp__loan_customer_lookup") }}
+    select * from {{ ref("base_loancorp__loan_customer_lookup") }}
 ),
 aggregated as (
     select
