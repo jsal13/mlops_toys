@@ -2,4 +2,50 @@ version: 2
 
 models:
   - name: total_payments_per_customer
-    description: '{{ doc("finance__mart_total_payments_per_customer") }}'
+    description: Gives information about total payments and number of loans per customer. The number of unique loans assigned to the associated customer.
+
+version: 2
+
+models:
+  - name: total_payments_per_customer
+    description: ""
+    config:
+      contract:
+        enforced: true
+
+    columns:
+      - name: customer_id
+        data_type: integer
+        description: "The ID of the associated customer."
+
+      - name: customer_name
+        data_type: varchar
+        description: "Customer's full name."
+
+      - name: customer_address
+        data_type: varchar
+        description: "The current address of the customer."
+
+      - name: customer_age
+        data_type: integer
+        description: "The age of the customer."
+
+      - name: number_of_unique_loans_assigned
+        data_type: integer
+        description: "Number of unique loans assigned to the customer."
+
+      - name: total_interest_paid
+        data_type: double
+        description: "Total amount of interest paid by customer."
+
+      - name: total_principal_paid
+        data_type: double
+        description: "Total amount of principal paid by customer."
+
+      - name: total_escrow_paid
+        data_type: double
+        description: "Total amount of escrow paid by customer."
+
+      - name: total_fees_paid
+        data_type: double
+        description: "Total amount of fees paid by customer."

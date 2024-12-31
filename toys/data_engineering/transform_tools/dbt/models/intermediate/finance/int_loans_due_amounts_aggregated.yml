@@ -2,13 +2,30 @@ version: 2
 
 models:
   - name: int_loans_due_amounts_aggregated
-    description: '{{ doc("finance__int_loans_due_amounts_aggregated")}}'
+    description: Sums due amounts per customer for all customer's loans.
+    config:
+      contract:
+        enforced: true
 
     columns:
       - name: customer_id
-        description: '{{ doc("loancorp__customer_id") }}'
+        description: "The ID of the associated customer."
         data_type: integer
         data_tests:
-          - dbt_expectations.expect_column_to_exist
-          - dbt_expectations.expect_column_values_to_be_of_type:
-              column_type: integer
+          - dbt_expectations.expect_column_values_to_be_unique
+
+      - name: due_interest_amount_sum
+        data_type: double
+        description: "Sum of `loancorp__due_interest_amount`."
+
+      - name: due_principal_amount_sum
+        data_type: double
+        description: "Sum of `loancorp__due_principal_amount`."
+
+      - name: due_escrow_amount_sum
+        data_type: double
+        description: "Sum of `loancorp__due_escrow_amount`."
+
+      - name: due_fees_amount_sum
+        data_type: double
+        description: "Sum of `loancorp__due_fees_amount`."
