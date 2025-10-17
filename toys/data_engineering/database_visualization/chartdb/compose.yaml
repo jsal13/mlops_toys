@@ -1,0 +1,11 @@
+# For examples, see the Awesome Compose repository:
+# https://github.com/docker/awesome-compose
+services:
+  chartdb:
+    image: ghcr.io/chartdb/chartdb:latest
+    environment:
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+    ports:
+      - 8081:80
+    depends_on:
+      - db
