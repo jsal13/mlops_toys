@@ -21,7 +21,7 @@ If not working:
 ## Quickstart
 
 ```
-
+just up
 ```
 
 ## Credentials
